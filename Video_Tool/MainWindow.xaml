@@ -31,7 +31,7 @@
         IsReadOnly="False"
         RowDetailsVisibilityMode="Collapsed"
         SelectionMode="Extended"
-        ItemsSource="{Binding ViewModel.Files,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+        ItemsSource="{Binding Files, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
             <DataGrid.Columns>
                 <DataGridTextColumn IsReadOnly="True" Header="FileName" Binding="{Binding FileName}"  />
                 <DataGridTextColumn IsReadOnly="True" Header="FilePath" Binding="{Binding FilePath}"  />
@@ -50,8 +50,8 @@
                 <ColumnDefinition Width="90"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Button Grid.Column="1" Height="40" Width="80" Click="Add_Click">Add</Button>
-            <Button Grid.Column="2" Height="40" Width="80">Start</Button>
-            <Button Grid.Column="3" Height="40" Width="80" IsEnabled="False">Stop</Button>
+            <Button Grid.Column="2" Height="40" Width="80" Click="Start_Click">Start</Button>
+            <Button Grid.Column="3" Height="40" Width="80" Click="Stop_Click">Stop</Button>
         </Grid>
     </Grid>
 </Window>

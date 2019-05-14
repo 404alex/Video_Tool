@@ -34,10 +34,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FFMpegCore, Version=1.0.9.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FFMpegCore.1.0.9\lib\netstandard2.0\FFMpegCore.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -65,6 +65,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="FFMPEG\OverrideArgument.cs" />
     <Compile Include="Model\HevcFile.cs" />
     <Compile Include="ViewModel\BindableBase.cs" />
     <Compile Include="ViewModel\ConverterListViewModel.cs" />
@@ -99,45 +100,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="FFMPEG\bin\presets\ffprobe.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="FFMPEG\bin\presets\libvpx-1080p.ffpreset" />
-    <None Include="FFMPEG\bin\presets\libvpx-1080p50_60.ffpreset" />
-    <None Include="FFMPEG\bin\presets\libvpx-360p.ffpreset" />
-    <None Include="FFMPEG\bin\presets\libvpx-720p.ffpreset" />
-    <None Include="FFMPEG\bin\presets\libvpx-720p50_60.ffpreset" />
-    <None Include="FFMPEG\bin\presets\libvpx-ultrafast.ffpreset" />
-    <None Include="FFMPEG\bin\presets\libx264-baseline.ffpreset" />
-    <None Include="FFMPEG\bin\presets\libx264-fast.ffpreset" />
-    <None Include="FFMPEG\bin\presets\libx264-faster.ffpreset" />
-    <None Include="FFMPEG\bin\presets\libx264-faster_firstpass.ffpreset" />
-    <None Include="FFMPEG\bin\presets\libx264-fast_firstpass.ffpreset" />
-    <None Include="FFMPEG\bin\presets\libx264-ipod320.ffpreset" />
-    <None Include="FFMPEG\bin\presets\libx264-ipod640.ffpreset" />
-    <None Include="FFMPEG\bin\presets\libx264-lossless_fast.ffpreset" />
-    <None Include="FFMPEG\bin\presets\libx264-lossless_max.ffpreset" />
-    <None Include="FFMPEG\bin\presets\libx264-lossless_medium.ffpreset" />
-    <None Include="FFMPEG\bin\presets\libx264-lossless_slow.ffpreset" />
-    <None Include="FFMPEG\bin\presets\libx264-lossless_slower.ffpreset" />
-    <None Include="FFMPEG\bin\presets\libx264-lossless_ultrafast.ffpreset" />
-    <None Include="FFMPEG\bin\presets\libx264-main.ffpreset" />
-    <None Include="FFMPEG\bin\presets\libx264-medium.ffpreset" />
-    <None Include="FFMPEG\bin\presets\libx264-medium_firstpass.ffpreset" />
-    <None Include="FFMPEG\bin\presets\libx264-placebo.ffpreset" />
-    <None Include="FFMPEG\bin\presets\libx264-placebo_firstpass.ffpreset" />
-    <None Include="FFMPEG\bin\presets\libx264-slow.ffpreset" />
-    <None Include="FFMPEG\bin\presets\libx264-slower.ffpreset" />
-    <None Include="FFMPEG\bin\presets\libx264-slower_firstpass.ffpreset" />
-    <None Include="FFMPEG\bin\presets\libx264-slow_firstpass.ffpreset" />
-    <None Include="FFMPEG\bin\presets\libx264-superfast.ffpreset" />
-    <None Include="FFMPEG\bin\presets\libx264-superfast_firstpass.ffpreset" />
-    <None Include="FFMPEG\bin\presets\libx264-ultrafast.ffpreset" />
-    <None Include="FFMPEG\bin\presets\libx264-ultrafast_firstpass.ffpreset" />
-    <None Include="FFMPEG\bin\presets\libx264-veryfast.ffpreset" />
-    <None Include="FFMPEG\bin\presets\libx264-veryfast_firstpass.ffpreset" />
-    <None Include="FFMPEG\bin\presets\libx264-veryslow.ffpreset" />
-    <None Include="FFMPEG\bin\presets\libx264-veryslow_firstpass.ffpreset" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -147,6 +109,20 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="FFMPEG\bin\ffmpeg.exe" />
+    <Content Include="FFMPEG\bin\ffplay.exe" />
+    <Content Include="FFMPEG\bin\ffprobe.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FFMpegCore\FFMpegCore.csproj">
+      <Project>{81644c0a-334a-4160-b7d8-5d2ede936084}</Project>
+      <Name>FFMpegCore</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
 </Project>
