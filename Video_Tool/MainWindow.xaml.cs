@@ -3,6 +3,7 @@ using FFMpegCore.Enums;
 using FFMpegCore.FFMPEG;
 using FFMpegCore.FFMPEG.Argument;
 using FFMpegCore.FFMPEG.Enums;
+using MahApps.Metro.Controls;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,7 @@ namespace Video_Tool
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : MetroWindow
     {
         ConverterListViewModel ViewModel { get; } = new ConverterListViewModel();
 
