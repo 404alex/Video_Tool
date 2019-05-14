@@ -5,8 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Video_Tool"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Video Tools" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Row="0"
+            x:Name="dataGrid"
+        Margin="12"
+        VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+        HorizontalScrollBarVisibility="Visible"
+        VerticalScrollBarVisibility="Visible"
+        AlternatingRowBackground="Transparent"
+        AreRowDetailsFrozen="False"
+        AutoGenerateColumns="False"
+        CanUserSortColumns="False"
+        CanUserReorderColumns="False"
+        CanUserResizeColumns="True"
+        ColumnHeaderHeight="32"
+        MaxColumnWidth="400"
+        FrozenColumnCount="0"
+        GridLinesVisibility="None"
+        HeadersVisibility="Column"
+        IsReadOnly="False"
+        RowDetailsVisibilityMode="Collapsed"
+        SelectionMode="Extended"
+        ItemsSource="{Binding ViewModel.Files,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+            <DataGrid.Columns>
+                <DataGridTextColumn IsReadOnly="True" Header="FileName" Binding="{Binding FileName}"  />
+                <DataGridTextColumn IsReadOnly="True" Header="FilePath" Binding="{Binding FilePath}"  />
+                <DataGridTextColumn IsReadOnly="True" Header="Percentage" Binding="{Binding Percentage}" />
+                <DataGridTextColumn IsReadOnly="True" Header="Speed" Binding="{Binding Speed}"  />
+                <DataGridTextColumn IsReadOnly="True" Header="TargetPath" Binding="{Binding TargetPath}"  />
+                <DataGridTextColumn IsReadOnly="True" Header="IsFinished" Binding="{Binding IsFinished}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="90"></ColumnDefinition>
+                <ColumnDefinition Width="90"></ColumnDefinition>
+                <ColumnDefinition Width="90"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1" Height="40" Width="80" Click="Add_Click">Add</Button>
+            <Button Grid.Column="2" Height="40" Width="80">Start</Button>
+            <Button Grid.Column="3" Height="40" Width="80" IsEnabled="False">Stop</Button>
+        </Grid>
     </Grid>
 </Window>

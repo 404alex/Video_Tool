@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Video_Tool.ViewModel;
 
 namespace Video_Tool
 {
@@ -20,9 +22,24 @@ namespace Video_Tool
     /// </summary>
     public partial class MainWindow : Window
     {
+        ConverterListViewModel ViewModel { get; } = new ConverterListViewModel();
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Multiselect = true;
+            if (openFileDialog.ShowDialog() == true)
+            {
+                foreach (var item in openFileDialog.FileNames)
+                {
+
+                }
+            }
         }
     }
 }
