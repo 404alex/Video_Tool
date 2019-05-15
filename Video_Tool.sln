@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Video_Tool", "Video_Tool\Vi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFMpegCore", "FFMpegCore\FFMpegCore.csproj", "{81644C0A-334A-4160-B7D8-5D2EDE936084}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "VideoToolSetup", "VideoToolSetup\VideoToolSetup.vdproj", "{7F78B559-17B7-499E-B29A-87815C400D1E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{81644C0A-334A-4160-B7D8-5D2EDE936084}.Release|Any CPU.Build.0 = Release|Any CPU
 		{81644C0A-334A-4160-B7D8-5D2EDE936084}.Release|x64.ActiveCfg = Release|Any CPU
 		{81644C0A-334A-4160-B7D8-5D2EDE936084}.Release|x64.Build.0 = Release|Any CPU
+		{7F78B559-17B7-499E-B29A-87815C400D1E}.Debug|Any CPU.ActiveCfg = Debug
+		{7F78B559-17B7-499E-B29A-87815C400D1E}.Debug|x64.ActiveCfg = Debug
+		{7F78B559-17B7-499E-B29A-87815C400D1E}.Release|Any CPU.ActiveCfg = Release
+		{7F78B559-17B7-499E-B29A-87815C400D1E}.Release|x64.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
