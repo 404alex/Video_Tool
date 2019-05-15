@@ -62,7 +62,7 @@ namespace Video_Tool
                 }
             }
         }
-        private FFMpeg encoder = new FFMpeg();
+        private FFMpeg encoder;
 
         private void Start_Click(object sender, RoutedEventArgs e)
         {
@@ -72,7 +72,7 @@ namespace Video_Tool
                 {
                     if (item.IsFinished == false)
                     {
-
+                        encoder = new FFMpeg();
                         string inputFile = item.FilePath;
 
 
@@ -109,7 +109,8 @@ namespace Video_Tool
         {
             Task.Run(() =>
             {
-                encoder.Stop();
+                if (encoder != null)
+                    encoder.Stop();
             });
         }
     }
